@@ -62,6 +62,28 @@ int consulta()
 {
 	printf("Você escolheu consultar os nomes!\n");
 	system("pause");
+    
+    setlocale(LC_ALL, "Portuguese"); //Definindo a linguagem
+    
+    char cpf[40];
+    char conteudo[200];
+    
+    printf("Digite o cpf a ser consultado: ");
+    scanf("%s", cpf);
+    
+    FILE *file;
+    file = fopen(cpf,"r");
+    
+    if(file == NULL)
+    {
+      printf("Não foi possível encontrar o arquivo!\n");
+    }
+    while(fgets(conteudo, 200, file) != NULL)
+    { 
+      printf("\nEssas são as informações do usuário");
+      printf("%s", conteudo);
+      printf("\n\n");
+    }
 }
 
 int deletar()
