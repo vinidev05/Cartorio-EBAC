@@ -90,6 +90,24 @@ int deletar()
 {
 	printf("Você escolheu deletar nomes!\n");
 	system("pause");	
+    
+    char cpf[40];
+    
+    printf("Digite o CPF que deseja deletar:\n");
+    scanf("%s", cpf);
+    
+    remove(cpf);
+    
+    FILE *file;
+    file == fopen(cpf,"r");
+    
+    printf("CPF deletado com sucesso\n"); //mensagem
+    
+    if(file == NULL) //caso não achar o arquivo (NULL=Vazio)
+    {
+        printf("O usuário não se encontra no sistema!\n"); //mensagem de erro caso o usuário escolha uma opção que não existe
+        system("pause"); 
+    }
 }
 
 
