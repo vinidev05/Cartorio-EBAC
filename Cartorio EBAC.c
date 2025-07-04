@@ -3,27 +3,29 @@
 #include <locale.h> //biblioteca de alocações de texto por região
 #include <string.h> //biblioteca responsável por cuidar das string
 		
-int registro()
+int registro() // Função responsável por cadastrar os usuários
 {
+//inicio da criação de variáveis/strings
 	char arquivo[40];
 	char cpf[40];
 	char nome[40];
 	char sobrenome[40];
 	char cargo[40];
+//final da criação    
 	
-	printf("Digite o CPF a ser cadastrado: ");
-	scanf("%s", cpf); //%s é para digitar uma string
+	printf("Digite o CPF a ser cadastrado: "); //Coletando cpf do usuário
+	scanf("%s", cpf); //"%s" é para digitar uma string
 	
 	strcpy(arquivo, cpf); //Responsavel por copiar os valores das string
 	
 	FILE *file; // cria o arquivo
-	file = fopen(arquivo, "w"); // cria o arquivo
+	file = fopen(arquivo, "w"); // cria o arquivo e o "w" significa de escrever (novo arquivo)
 	fprintf(file,cpf); // salvo o valor da variavel
 	fclose(file); // fecha o arquivo
 	
 	file = fopen(arquivo, "a");//a é para retomar ao arquivo w que foi criado
 	fprintf(file,",");//vírgula para separar
-	fclose(file);
+	fclose(file); //fechar arquivo
 	
 	printf("Digite o nome a ser cadastrado: ");
 	scanf("%s",nome);
@@ -74,7 +76,7 @@ int consulta()
     FILE *file;
     file = fopen(cpf,"r");
     
-    if(file == NULL)
+    if(file == NULL) //caso não achar o arquivo(NULL=Vazio)
     {
       printf("Não foi possível encontrar o arquivo!\n");
     }
@@ -120,7 +122,7 @@ int main()
 	for(laco=1;laco=1;)
 	{
 
-		system("cls");
+		system("cls"); //limpar a tela
 
 		setlocale(LC_ALL, "Portuguese"); //Definindo a linguagem
 			
@@ -133,12 +135,12 @@ int main()
 				
 		scanf("%d", &opcao); //armazenando a escolha do usuário
 		
-		system("cls");
+		system("cls"); //limpar a tela
 	
 		switch(opcao) //inicio da seleção
 		{
 			case 1:
-			registro();
+			registro(); // chamando funções que foram criadas
 			break;
 			
 			case 2:
