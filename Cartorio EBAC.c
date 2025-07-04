@@ -1,19 +1,19 @@
-#include <stdio.h> //biblioteca de comunica��o com o usu�rio
-#include <stdlib.h> //biblioteca de aloca��o de espa�o em mem�ria
-#include <locale.h> ///biblioteca de aloca��es de texto por regi�o
-#include <string.h> //biblioteca respons�vel por cuidar das string
+#include <stdio.h> //biblioteca de comunicação com o usuário
+#include <stdlib.h> //biblioteca de alocação de espa�o em memória
+#include <locale.h> ///biblioteca de alocações de texto por região
+#include <string.h> //biblioteca responsável por cuidar das string
 		
-int registro() // Fun��o respons�vel por cadastrar os usu�rios
+int registro() // Função responsável por cadastrar os usuários
 {
-//inicio da cria��o de vari�veis/strings
+//inicio da criação de variáveis/strings
 	char arquivo[40];
 	char cpf[40];
 	char nome[40];
 	char sobrenome[40];
 	char cargo[40];
-//final da cria��o    
+//final da criação    
 	
-	printf("Digite o CPF a ser cadastrado: "); //Coletando cpf do usu�rio
+	printf("Digite o CPF a ser cadastrado: "); //Coletando cpf do usuário
 	scanf("%s", cpf); //"%s" para digitar uma string
 	
 	strcpy(arquivo, cpf); //Responsavel por copiar os valores das string
@@ -24,7 +24,7 @@ int registro() // Fun��o respons�vel por cadastrar os usu�rios
 	fclose(file); // fecha o arquivo
 	
 	file = fopen(arquivo, "a");//a para retomar ao arquivo w que foi criado
-	fprintf(file,",");//v�rgula para separar
+	fprintf(file,",");//vírgula para separar
 	fclose(file); //fechar arquivo
 	
 	printf("Digite o nome a ser cadastrado: ");
@@ -62,7 +62,7 @@ int registro() // Fun��o respons�vel por cadastrar os usu�rios
 
 int consulta()
 {
-	printf("Voc� escolheu consultar os nomes!\n");
+	printf("Você escolheu consultar os nomes!\n");
 	system("pause");
     
     setlocale(LC_ALL, "Portuguese"); //Definindo a linguagem
@@ -76,13 +76,13 @@ int consulta()
     FILE *file;
     file = fopen(cpf,"r");
     
-    if(file == NULL) //caso n�o achar o arquivo(NULL=Vazio)
+    if(file == NULL) //caso não achar o arquivo(NULL=Vazio)
     {
       printf("N�o foi poss�vel encontrar o arquivo!\n");
     }
     while(fgets(conteudo, 200, file) != NULL)
     { 
-      printf("\nEssas s�o as informa��es do usu�rio");
+      printf("\nEssas são as informações do usuário");
       printf("%s", conteudo);
       printf("\n\n");
     }
@@ -92,7 +92,7 @@ int consulta()
 
 int deletar()
 {
-	printf("Voc� escolheu deletar nomes!\n");
+	printf("Você escolheu deletar nomes!\n");
 	system("pause");	
     
     char cpf[40];
@@ -109,9 +109,9 @@ int deletar()
     
     printf("CPF deletado com sucesso\n"); //mensagem
     
-    if(file == NULL) //caso n�o achar o arquivo (NULL=Vazio)
+    if(file == NULL) //caso não achar o arquivo (NULL=Vazio)
     {
-        printf("O usu�rio n�o se encontra no sistema!\n"); //mensagem de erro caso o usu�rio escolha uma op��o que n�o existe
+        printf("O usuário não se encontra no sistema!\n"); //mensagem de erro caso o usuário escolha uma opção que não existe
          system("pause");
     }
     fclose(file);
@@ -121,19 +121,19 @@ int deletar()
 	
 int main()
 	{
-	int opcao=0; //Definindo vari�veis
+	int opcao=0; //Definindo variáveis
 	int laco=1;
 	char senhadigitada[]="a";
 	int comparacao;
 	
-	printf("### Cart�rio da EBAC ###\n\n");
+	printf("### Cartório da EBAC ###\n\n");
 	printf("Login de administrador!\n\n");
 	printf("Digite a sua senha:");
 	scanf("%s",senhadigitada);
 	
-	comparacao = strcmp(senhadigitada, "admin"); //strcmp = compara��o de strings
+	comparacao = strcmp(senhadigitada, "admin"); //strcmp = comparação de strings
 	
-	if(comparacao == 0)//caso usu�rio for diferente retrna 1 no lugar de 0
+	if(comparacao == 0)//caso usuário for diferente retrna 1 no lugar de 0
 	{
 		system("cls");
 		for(laco=1;laco=1;)
@@ -143,30 +143,30 @@ int main()
 	
 			setlocale(LC_ALL, "Portuguese"); //Definindo a linguagem
 				
-			printf("### Cart�rio da EBAC ###\n\n"); //inicio do menu
-			printf("Escolha a op��o desejada do menu\n\n");
+			printf("### Cartório da EBAC ###\n\n"); //inicio do menu
+			printf("Escolha a opção desejada do menu\n\n");
 			printf("\t1 - Registrar nomes\n");
 			printf("\t2 - Consultar nomes\n");
 			printf("\t3 - Deletar nomes\n\n"); 
 	        printf("\t4 - Sair do programa\n\n");
 			printf("Op��o: ");//fim do menu
 					
-			scanf("%d", &opcao); //armazenando a escolha do usu�rio
+			scanf("%d", &opcao); //armazenando a escolha do usuário
 			
 			system("cls"); //limpar a tela
 		
-			switch(opcao) //inicio da sele��o
+			switch(opcao) //inicio da seleção
 			{
 				case 1:
-				registro(); // chamando fun��es que foram criadas
+				registro(); // chamando funções que foram criadas
 				break;
 				
 				case 2:
-				consulta(); // chamando fun��es que foram criadas
+				consulta(); // chamando funções que foram criadas
 				break;
 			
 				case 3:
-				deletar(); // chamando fun��es que foram criadas
+				deletar(); // chamando funções que foram criadas
 				break;
 	            
 	            case 4:
