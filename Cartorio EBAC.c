@@ -3,15 +3,15 @@
 #include <locale.h> //biblioteca de alocações de texto por região
 #include <string.h> //biblioteca responsável por cuidar das string
 		
-int registro() // Função responsável por cadastrar os usuários
-{
-//inicio da criação de variáveis/strings
+ int registro() // Função responsável por cadastrar os usuários
+ {
+ //inicio da criação de variáveis/strings
 	char arquivo[40];
 	char cpf[40];
 	char nome[40];
 	char sobrenome[40];
 	char cargo[40];
-//final da criação    
+ //final da criação    
 	
 	printf("Digite o CPF a ser cadastrado: "); //Coletando cpf do usuário
 	scanf("%s", cpf); //"%s" é para digitar uma string
@@ -58,10 +58,10 @@ int registro() // Função responsável por cadastrar os usuários
 	
     system("pause");
 
-}
+ }
 
-int consulta()
-{
+ int consulta()
+ {
 	printf("Você escolheu consultar os nomes!\n");
 	system("pause");
     
@@ -86,10 +86,10 @@ int consulta()
       printf("%s", conteudo);
       printf("\n\n");
     }
-}
+ }
 
-int deletar()
-{
+ int deletar()
+ {
 	printf("Você escolheu deletar nomes!\n");
 	system("pause");	
     
@@ -110,11 +110,11 @@ int deletar()
         printf("O usuário não se encontra no sistema!\n"); //mensagem de erro caso o usuário escolha uma opção que não existe
         system("pause"); 
     }
-}
+ }
 
 
 	
-int main()
+ int main()
 	{
 	int opcao=0; //Definindo variáveis
 	int laco=1;
@@ -131,6 +131,7 @@ int main()
 		printf("\t1 - Registrar nomes\n");
 		printf("\t2 - Consultar nomes\n");
 		printf("\t3 - Deletar nomes\n\n"); 
+        printf("\t4 - Sair do programa\n\n");
 		printf("Opção: ");//fim do menu
 				
 		scanf("%d", &opcao); //armazenando a escolha do usuário
@@ -150,6 +151,11 @@ int main()
 			case 3:
 			deletar();
 			break;
+            
+            case 4:
+            printf("Obrigado por utilizar o programa!\n");
+            return 0; //sair do sistema
+            break;
 		
 			default:
 			printf("Essa opção não está disponivel!\n");
