@@ -1,23 +1,77 @@
 #include <stdio.h> //biblioteca de comunicação com o usuário
 #include <stdlib.h> //biblioteca de alocação de espaço em memória
-#include <locale.h> ///biblioteca de alocações de texto por região
-
+#include <locale.h> //biblioteca de alocações de texto por região
+#include <string.h> //biblioteca responsável por cuidar das string
+		
 int registro()
 {
-     printf("Você escolheu o registro de nomes!\n");
-	 system("pause");
+	char arquivo[40];
+	char cpf[40];
+	char nome[40];
+	char sobrenome[40];
+	char cargo[40];
+	
+	printf("Digite o CPF a ser cadastrado: ");
+	scanf("%s", cpf); //%s é para digitar uma string
+	
+	strcpy(arquivo, cpf); //Responsavel por copiar os valores das string
+	
+	FILE *file; // cria o arquivo
+	file = fopen(arquivo, "w"); // cria o arquivo
+	fprintf(file,cpf); // salvo o valor da variavel
+	fclose(file); // fecha o arquivo
+	
+	file = fopen(arquivo, "a");//a é para retomar ao arquivo w que foi criado
+	fprintf(file,",");//vírgula para separar
+	fclose(file);
+	
+	printf("Digite o nome a ser cadastrado: ");
+	scanf("%s",nome);
+	
+	file = fopen(arquivo, "a");
+	fprintf(file,nome);
+	fclose(file);
+	
+	file = fopen(arquivo, "a");
+	fprintf(file,",");
+	fclose(file);
+	
+	printf("Digite o sobrenome a ser cadastrado: ");
+	scanf("%s",sobrenome);
+	
+	file = fopen(arquivo, "a");
+	fprintf(file,sobrenome);
+	fclose(file);
+	
+	file = fopen(arquivo, "a");
+	fprintf(file,",");
+	fclose(file);
+	
+	printf("Digite o cargo a ser cadastrado: ");
+	scanf("%s",cargo);
+	
+	file = fopen(arquivo, "a");
+	fprintf(file,cargo);
+	fclose(file);	
+	
+    system("pause");
+
 }
+
 int consulta()
 {
-      printf("Você escolheu consultar nomes!\n") ;
-	  system("pause");
+	printf("Você escolheu consultar os nomes!\n");
+	system("pause");
 }
+
 int deletar()
 {
-       printf("Você escolheu deletar nomes!\n") ;
-	   system("pause");
+	printf("Você escolheu deletar nomes!\n");
+	system("pause");	
 }
-       
+
+
+	
 int main()
 	{
 	int opcao=0; //Definindo variáveis
@@ -25,40 +79,41 @@ int main()
 	
 	for(laco=1;laco=1;)
 	{
-	    system("cls");
-        
-		setlocale(LC_ALL, "Portuguese"); // Definindo a linguagem
-		
+
+		system("cls");
+
+		setlocale(LC_ALL, "Portuguese"); //Definindo a linguagem
+			
 		printf("### Cartório da EBAC ###\n\n"); //inicio do menu
 		printf("Escolha a opção desejada do menu\n\n");
 		printf("\t1 - Registrar nomes\n");
 		printf("\t2 - Consultar nomes\n");
-		printf("\t3 - Deletar nomes\n");
-		printf("Opção: "); //fim do menu
-		
-		scanf("%d", &opcao); //armazenamento a escolha do usuário
+		printf("\t3 - Deletar nomes\n\n"); 
+		printf("Opção: ");//fim do menu
+				
+		scanf("%d", &opcao); //armazenando a escolha do usuário
 		
 		system("cls");
-		
-		switch(opcao)
+	
+		switch(opcao) //inicio da seleção
 		{
 			case 1:
 			registro();
-			break;	
-
+			break;
+			
 			case 2:
 			consulta();
 			break;
-			
+		
 			case 3:
 			deletar();
 			break;
-			
+		
 			default:
-			printf("essa opção não está disponivel!\n");
+			printf("Essa opção não está disponivel!\n");
 			system("pause");
 			break;
-		}
-	}
+		} //fim da seleção
+			
+	}	
 }
-    
